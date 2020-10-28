@@ -2,7 +2,6 @@ package com.homework.week2.repository;
 
 import com.homework.week2.model.Product;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;

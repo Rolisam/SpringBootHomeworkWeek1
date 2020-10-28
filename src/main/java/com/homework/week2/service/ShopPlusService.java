@@ -10,20 +10,15 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.DoubleAdder;
-import java.util.stream.Collectors;
-
 
 @Profile("Plus")
 @Service
 public class ShopPlusService{
 
-    ShoppingCart shoppingCart;
+    private ShoppingCart shoppingCart;
 
     @Value("${app-vat}")
-    double tax;
+    private double tax;
 
     @Autowired
     public ShopPlusService(ShoppingCart shoppingCart) {

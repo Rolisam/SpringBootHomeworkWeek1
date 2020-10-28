@@ -15,13 +15,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class ShopProService {
 
-    ShoppingCart shoppingCart;
+    private ShoppingCart shoppingCart;
 
     @Value("${app-tax}")
-    double tax;
+    private double tax;
 
     @Value("${app-discount}")
-    double discount;
+    private double discount;
 
     @Autowired
     public ShopProService(ShoppingCart shoppingCart) {

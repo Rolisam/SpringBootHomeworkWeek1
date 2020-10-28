@@ -8,14 +8,12 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @Profile("Start")
 public class ShopStartService {
 
-   ShoppingCart shoppingCart;
+   private ShoppingCart shoppingCart;
 
    @Autowired
    public ShopStartService(ShoppingCart shoppingCart) {
@@ -25,10 +23,10 @@ public class ShopStartService {
    @EventListener(ApplicationReadyEvent.class)
    public void get() {
       shoppingCart.getProductList().forEach(o -> System.out.println(o.getName() + " " + o.getPrice()));
-      System.out.println("Shopping cart value: " + ShoppingCartValue() + " zł");
+      System.out.println("Shopping cart value: " + getShoppingCartValue() + " zł");
    }
 
-   private Double ShoppingCartValue() {
+   private Double getShoppingCartValue() {
       return Math.floor(shoppingCart.getProductList().stream().mapToDouble(Product::getPrice).sum() * 100) / 100;
    }
 }
